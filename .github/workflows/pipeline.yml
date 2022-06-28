@@ -3,7 +3,7 @@ on: workflow_dispatch
     
 jobs:
   build_workflow:
-    uses: ./.github/workflows/common/build.yml
+    uses: ./.github/workflows/common-build.yml
 
   install_microservice_a:
     needs: build_workflow 
