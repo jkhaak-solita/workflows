@@ -2,7 +2,11 @@ name: Microservice B Pipeline
 on: workflow_dispatch
 
 jobs:
+  build_workflow:
+    uses: ./.github/workflows/common-build.yml
+
   install:
+    needs: build_workflow
     uses: ./.github/workflows/microservice-b-install.yml
 
   deploy:

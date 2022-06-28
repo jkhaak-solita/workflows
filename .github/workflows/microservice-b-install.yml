@@ -2,11 +2,7 @@ name: Install Microservice B
 on: [workflow_dispatch, workflow_call]
 
 jobs:
-  build_workflow:
-    uses: ./.github/workflows/common-build.yml
-
   install:
-    needs: build_workflow 
     runs-on: ubuntu-latest
     steps:
       - name: Install Microservice B
