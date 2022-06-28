@@ -1,4 +1,4 @@
-name: Build
+name: Common - Build
 on: workflow_call
 
 jobs:

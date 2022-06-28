@@ -1,4 +1,4 @@
-name: Microservice A Pipeline
+name: Pipeline - Microservice A
 on: workflow_dispatch
 
 jobs:

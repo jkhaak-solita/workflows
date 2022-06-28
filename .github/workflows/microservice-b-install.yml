@@ -1,4 +1,4 @@
-name: Install Microservice B
+name: Microservice B - Install
 on: [workflow_dispatch, workflow_call]
 
 jobs:

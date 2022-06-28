@@ -1,4 +1,4 @@
-name: Main pipeline
+name: Pipeline - Main
 on: workflow_dispatch
     
 jobs:

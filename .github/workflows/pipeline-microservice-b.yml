@@ -1,4 +1,4 @@
-name: Microservice B Pipeline
+name: Pipeline - Microservice B
 on: workflow_dispatch
 
 jobs:

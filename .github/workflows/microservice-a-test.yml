@@ -1,4 +1,4 @@
-name: Test Microservice A
+name: Microservice A - Test
 on: [workflow_call]
 
 jobs:

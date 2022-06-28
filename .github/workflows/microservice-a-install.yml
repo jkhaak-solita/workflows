@@ -1,4 +1,4 @@
-name: Install Microservice A
+name: Microservice A - Install
 on: [workflow_call]
 
 jobs:
