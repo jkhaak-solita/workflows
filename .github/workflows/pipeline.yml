@@ -5,10 +5,33 @@ jobs:
   build_workflow:
     uses: ./.github/workflows/common-build.yml
 
-  install_microservice_a:
-    needs: build_workflow
-    uses: ./.github/workflows/pipeline-microservice-a.yml
 
-  install_microservice_b:
+  ######################
+  # Microservice A     #
+  ######################
+  microservice_a_test:
     needs: build_workflow
-    uses: ./.github/workflows/pipeline-microservice-b.yml
+    uses: ./.github/workflows/microservice-a-test.yml
+
+  microservice_a_install:
+    needs: build_workflow 
+    uses: ./.github/workflows/microservice-a-install.yml
+
+  microservice_a_deploy:
+    needs: [microservice_a_install, microservice_a_test]
+    uses: ./.github/workflows/microservice-a-deploy.yml
+
+
+  ######################
+  # Microservice B     #
+  ######################
+  microservice_b_install:
+    needs: build_workflow
+    uses: ./.github/workflows/microservice-b-install.yml
+
+  microservice_b_deploy:
+    needs: microservice_b_install
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Deploy microservice B"
+        run: echo "cdk deploy"

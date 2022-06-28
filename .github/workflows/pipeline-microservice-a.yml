@@ -1,5 +1,5 @@
 name: Microservice A Pipeline
-on: [workflow_dispatch, workflow_call]
+on: workflow_dispatch
 
 jobs:
   build_workflow:
