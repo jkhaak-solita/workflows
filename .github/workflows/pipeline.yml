@@ -1,0 +1,20 @@
+name: Main pipeline
+on: workflow_dispatch
+    
+jobs:
+  build_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/build
+
+  install_microservice_a:
+    needs: build_workflow 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/microservice-a/pipeline
+
+  install_microservice_b:
+    needs: build_workflow 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/microservice-b/pipeline

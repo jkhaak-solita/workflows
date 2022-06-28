@@ -1,0 +1,26 @@
+name: Microservice A Pipeline
+on: [workflow_dispatch, workflow_call]
+
+jobs:
+  build_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/build
+
+  test:
+    needs: build_workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/microservice-a/test
+
+  install:
+    needs: build_workflow 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/microservice-a/install
+
+  deploy:
+    needs: [install, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/microservice-a/deploy

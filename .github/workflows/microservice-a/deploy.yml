@@ -1,0 +1,10 @@
+name: Deploy Microservice A
+on: [workflow_call]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Beploying"
+        run: echo "cdk deploy"
+        

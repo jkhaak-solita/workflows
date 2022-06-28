@@ -1,0 +1,10 @@
+name: Run tests for Microservice A
+on: [workflow_call]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run tests"
+        run: echo "yarn test"
+        

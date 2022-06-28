@@ -1,0 +1,10 @@
+name: Install Microservice A
+on: [workflow_call]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Install"
+        run: echo "Installing..."
+        
