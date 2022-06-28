@@ -1,14 +1,15 @@
-name: Microservice B Pipeline
+name: Install Microservice B
 on: [workflow_dispatch, workflow_call]
 
 jobs:
   build_workflow:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/build
+      - uses: ./.github/workflows/common/build.yml
 
   install:
     needs: build_workflow 
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/microservice-b/install
+      - name: Install Microservice B
+        run: echo "Installing microservice B..."

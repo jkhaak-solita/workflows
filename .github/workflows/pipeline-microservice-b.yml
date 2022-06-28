@@ -3,10 +3,9 @@ on: [workflow_dispatch, workflow_call]
 
 jobs:
   install:
-    needs: build_workflow 
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/microservice-b/install
+      - uses: ./.github/workflows/microservice-b/install.yml
 
   deploy:
     needs: install
