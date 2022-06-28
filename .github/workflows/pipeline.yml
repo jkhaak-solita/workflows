@@ -5,16 +5,19 @@ jobs:
   build_workflow:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/workflows/common/build.yml
 
   install_microservice_a:
     needs: build_workflow 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/workflows/pipeline-microservice-a.yml
 
   install_microservice_b:
     needs: build_workflow 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/workflows/pipeline-microservice-b.yml
