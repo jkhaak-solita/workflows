@@ -3,28 +3,16 @@ on: [workflow_dispatch, workflow_call]
 
 jobs:
   build_workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/common-build.yml
+    uses: ./.github/workflows/common-build.yml
 
   test:
     needs: build_workflow
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/microservice-a-test.yml
+    uses: ./.github/workflows/microservice-a-test.yml
 
   install:
     needs: build_workflow 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/microservice-a-install.yml
+    uses: ./.github/workflows/microservice-a-install.yml
 
   deploy:
     needs: [install, test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/microservice-a-deploy.yml
+    uses: ./.github/workflows/microservice-a-deploy.yml
